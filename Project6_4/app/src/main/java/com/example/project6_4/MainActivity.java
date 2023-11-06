@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.pici_icon);
         setTitle("명화 선호도 투표");
+        Log.i("Main Log", "onCreate()");
 
         // 9개의 이미지 투표 결과
         int voteCount[] = new int[9];
@@ -58,5 +60,41 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("Main Log", "onDestroy()");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("Main Log", "onStop()");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("Main Log", "onPause()");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("Main Log", "onResume()");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("Main Log", "onStart()");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i("Main Log", "onRestart()");
     }
 }
