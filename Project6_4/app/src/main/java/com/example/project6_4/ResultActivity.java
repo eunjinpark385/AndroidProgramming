@@ -14,32 +14,37 @@ import android.widget.TextView;
 public class ResultActivity extends AppCompatActivity {
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.pici_icon);
         setTitle("투표 결과");
+        // 로그 남기기
         Log.i("Result Log", "onCreate()");
 
-        // 앞 화면에서 보낸 투표 결과 값 받기
+        // MainActivity 에서 전달된 인텐트 객체 & 데이터 받기
         Intent intent = getIntent();
         int[] voteResult = intent.getIntArrayExtra("VoteCount");
         String[] imageName = intent.getStringArrayExtra("ImageName");
 
         TextView tv[] = new TextView[imageName.length];
         RatingBar rbar[] = new RatingBar[imageName.length];
-
+        // 9개의 TextView ID 배열
         Integer tvID[] = {R.id.tv1, R.id.tv2, R.id.tv3, R.id.tv4, R.id.tv5,
                 R.id.tv6, R.id.tv7, R.id.tv8, R.id.tv9};
+        // 9개의 RatingBar ID 배열
         Integer rbarID[] = {R.id.rbar1, R.id.rbar2, R.id.rbar3, R.id.rbar4,
                 R.id.rbar5, R.id.rbar6, R.id.rbar7, R.id.rbar8, R.id.rbar9};
+        // 9개의 이미지 배열
         Integer imageField[] = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3,
                 R.drawable.pic4, R.drawable.pic5, R.drawable.pic6, R.drawable.pic7,
                 R.drawable.pic8, R.drawable.pic9};
 
         TextView tvTop = (TextView) findViewById(R.id.tvTop);
         ImageView ivTop = (ImageView) findViewById(R.id.ivTop);
+        // 최다 득표 그림 찾기
         int maxEntry = 0;
         for (int i = 1; i < voteResult.length; i++) {
             if (voteResult[maxEntry] < voteResult[i])
@@ -48,12 +53,10 @@ public class ResultActivity extends AppCompatActivity {
         tvTop.setText(imageName[maxEntry]);
         ivTop.setImageResource(imageField[maxEntry]);
 
-        // 텍스트뷰, 레이팅바 아이디 찾기
         for (int i = 0; i < voteResult.length; i++) {
             tv[i] = (TextView) findViewById(tvID[i]);
             rbar[i] = (RatingBar) findViewById(rbarID[i]);
         }
-        // 텍스트를 해당 그림 이름으로 변경, 별점 변경
         for (int i = 0; i < voteResult.length; i++) {
             tv[i].setText(imageName[i]);
             rbar[i].setRating((float) voteResult[i]);
@@ -68,6 +71,7 @@ public class ResultActivity extends AppCompatActivity {
         });
     }
 
+    // ResultActivity 생명 주기 로그 남기기
     @Override
     protected void onDestroy() {
         super.onDestroy();
