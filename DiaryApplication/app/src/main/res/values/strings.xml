@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">DiaryApplication</string>
+    <string name="login_tv">LOGIN</string>
+    <string name="login_hint">사용자 이름을 입력하세요.</string>
+    <string name="login_btn">로그인</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- note_item -->
+    <string name="note_category">카테고리</string>
+    <string name="note_title">제목</string>
+    <string name="note_date">날짜</string>
+    <string name="note_content">내용</string>
+    <!-- dialog -->
+    <string name="dlg_hint_category">카테고리를 입력하세요</string>
+    <string name="dlg_hint_title">제목을 입력하세요</string>
+    <string name="dlg_hint_content">내용을 입력하세요</string>
+    <string name="dlg_btn">확인</string>
+    <string name="dlg_title">수정</string>
+    <string name="btn_close">닫기</string>
+</resources>
